@@ -50,6 +50,14 @@ gts fix
 
 to automatically fix all of my syntax and convention errors, as well as give me warnings about undesirable coding practices.
 
+---
+
+Finally, I can run the compiled JavaScript file by using `node`:
+
+```
+node ./build/src/index.js
+```
+
 # Useful Websites
 
 -   [Web Site Name]
