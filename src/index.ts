@@ -50,20 +50,24 @@ const rl = createInterface({
 });
 
 function logFile(indent: number, file: string, i: number, length: number) {
+    // console.log(
+    //     ((indent > 0 && i === length - 1)? '│'.repeat(indent - 2) + '└' : '│'.repeat(indent - 1)) + (i !== length - 1 ? '├─' : '└─'),
+    //     file
+    // );
+    const isLastFile = i === length - 1;
     console.log(
-        '│'.repeat(indent - 1) + (i !== length - 1 ? '├─' : '└─'),
-        file
+        [...'│'.repeat(indent - 1)].join(' ') + ((indent > 1) ? ' ' : '') + ((isLastFile ? '└──' : '├──') + file)
     );
 }
 
 function logDir(indent: number, file: string) {
-    console.log('│'.repeat(indent - 1) + '├─', file + '\\');
+    console.log([...'│'.repeat(indent - 1)].join(' ') + ((indent > 1) ? ' ' : '') + ('├──' + `${file}/`));
 }
 
 async function listFiles(
-    path: string,
-    indent: number,
-    showHidden: boolean
+    path: string = '.',
+    indent: number = 1,
+    showHidden: boolean = false
 ): Promise<void> {
     try {
         const files = await readdirAsync(path);
@@ -101,15 +105,16 @@ async function listFiles(
 
 async function main(): Promise<void> {
     const dir = await new Promise<string>(resolve => {
-        rl.question(`Path from cwd (${process.cwd()}) to directory: `, resolve);
+        rl.question(`Path from cwd to directory: `, resolve);
     });
     const hidden = await new Promise<string>(resolve => {
         rl.question('Show hidden files? (Y/n) ', resolve);
     });
     rl.close();
     rl.removeAllListeners();
+
     console.log();
-    await listFiles(dir, 1, hidden.toUpperCase() === 'y' ? true : false);
+    await listFiles(dir, 1, hidden.toUpperCase() === 'Y' ? true : false);
 }
 
 main();
