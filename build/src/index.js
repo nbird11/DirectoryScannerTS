@@ -1,38 +1,5 @@
 "use strict";
-// import * as fs from 'node:fs';
 Object.defineProperty(exports, "__esModule", { value: true });
-// function listFiles(path = '.' /*, indent = 0*/): void {
-//     console.log(1);
-//     fs.readdir(path, (err, files) => {
-//         if (err) {
-//             console.log('ERROR:  ', err);
-//             return;
-//         }
-//         console.log(2);
-//         // files
-//         //     // .filter(f => f !== 'node_modules')
-//         //     .forEach(file => {
-//         //         fs.stat(path + '/' + file, (err, stats) => {
-//         //             if (err) {
-//         //                 console.log('ERROR:  ', err);
-//         //                 return;
-//         //             }
-//         //             if (stats.isFile()) {
-//         //                 console.log(indent, 'file:', path + '/' + file);
-//         //             } else if (stats.isDirectory()) {
-//         //                 console.log(indent, 'directory:', path + '/' + file);
-//         //                 listFiles(path + '/' + file, indent + 1);
-//         //             }
-//         //         });
-//         //     });
-//     });
-// }
-// function main(): void {
-//     listFiles();
-//     console.log(3);
-// }
-// main();
-// Async/Await version
 const fs = require("node:fs");
 const node_util_1 = require("node:util");
 const node_readline_1 = require("node:readline");
@@ -45,15 +12,15 @@ const rl = (0, node_readline_1.createInterface)({
     output: node_process_1.stdout,
 });
 function logFile(indent, file, i, length) {
-    // console.log(
-    //     ((indent > 0 && i === length - 1)? '│'.repeat(indent - 2) + '└' : '│'.repeat(indent - 1)) + (i !== length - 1 ? '├─' : '└─'),
-    //     file
-    // );
     const isLastFile = i === length - 1;
-    console.log([...'│'.repeat(indent - 1)].join(' ') + ((indent > 1) ? ' ' : '') + ((isLastFile ? '└──' : '├──') + file));
+    console.log([...'│'.repeat(indent - 1)].join(' ') +
+        (indent > 1 ? ' ' : '') +
+        ((isLastFile ? '└──' : '├──') + file));
 }
 function logDir(indent, file) {
-    console.log([...'│'.repeat(indent - 1)].join(' ') + ((indent > 1) ? ' ' : '') + ('├──' + `${file}/`));
+    console.log([...'│'.repeat(indent - 1)].join(' ') +
+        (indent > 1 ? ' ' : '') +
+        ('├──' + `${file}/`));
 }
 async function listFiles(path = '.', indent = 1, showHidden = false) {
     try {
@@ -93,7 +60,7 @@ async function listFiles(path = '.', indent = 1, showHidden = false) {
 }
 async function main() {
     const dir = await new Promise(resolve => {
-        rl.question(`Path from cwd to directory: `, resolve);
+        rl.question('Path from cwd to directory: ', resolve);
     });
     const hidden = await new Promise(resolve => {
         rl.question('Show hidden files? (Y/n) ', resolve);
