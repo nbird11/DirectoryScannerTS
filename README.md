@@ -20,13 +20,13 @@ npm install -g typescript
 
 I installed it globally because I don't like using `npx` to run the `tsc` module.
 
-With TypeScript installed, I can now create the `tsconfig.json` file my TypeScript code into regular JavaScript using
+With TypeScript installed, I can now create the `tsconfig.json` file for my project using
 
 ```
 tsc init
 ```
 
-and
+then use
 
 ```
 tsc
