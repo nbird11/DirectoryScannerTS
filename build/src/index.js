@@ -22,9 +22,7 @@ const rl = (0, node_readline_1.createInterface)({
 function logFile(indent, file, isLastFile) {
     console.log(
     // Indent is used to determine the number of vertical lines needed before the file.
-    [...'│'.repeat(indent - 1)].join(' ') +
-        (indent > 1 ? ' ' : '') +
-        ((isLastFile ? '└──' : '├──') + file));
+    '│ '.repeat(indent - 1) + ((isLastFile ? '└─' : '├─') + file));
 }
 /**
  * Outputs a line containing the name of the directory to the display.
@@ -32,9 +30,7 @@ function logFile(indent, file, isLastFile) {
  * @param dir The name of the dir.
  */
 function logDir(indent, dir) {
-    console.log([...'│'.repeat(indent - 1)].join(' ') +
-        (indent > 1 ? ' ' : '') +
-        ('├──' + `${dir}/`));
+    console.log('│ '.repeat(indent - 1) + ('├─' + `${dir}/`));
 }
 /**
  * Recursive function that lists all the files and directories from the

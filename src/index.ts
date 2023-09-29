@@ -23,9 +23,7 @@ const rl = createInterface({
 function logFile(indent: number, file: string, isLastFile: boolean): void {
   console.log(
     // Indent is used to determine the number of vertical lines needed before the file.
-    [...'│'.repeat(indent - 1)].join(' ') +
-      (indent > 1 ? ' ' : '') +
-      ((isLastFile ? '└──' : '├──') + file)
+    '│ '.repeat(indent - 1) + ((isLastFile ? '└─' : '├─') + file)
   );
 }
 
@@ -35,11 +33,7 @@ function logFile(indent: number, file: string, isLastFile: boolean): void {
  * @param dir The name of the dir.
  */
 function logDir(indent: number, dir: string): void {
-  console.log(
-    [...'│'.repeat(indent - 1)].join(' ') +
-      (indent > 1 ? ' ' : '') +
-      ('├──' + `${dir}/`)
-  );
+  console.log('│ '.repeat(indent - 1) + ('├─' + `${dir}/`));
 }
 
 /**
