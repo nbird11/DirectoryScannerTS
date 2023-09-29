@@ -60,13 +60,43 @@ node ./build/src/index.js
 
 # Useful Websites
 
--   [Web Site Name]
--   [Web Site Name]
+- [TypeScript Official Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+- [Google TypeScript Style (gts)](https://github.com/google/gts/blob/main/README.md)
 
 # Future Work
 
 Things that I need to fix, improve, and add in the future.
 
--   Item 1
--   Item 2
--   Item 3
+- Make it so that if a directory is the last item in its root, have the vertical line at its last deepest file depth turn into bent line.
+
+  For example:
+
+  ```
+  ...
+
+  │ ├─build/
+  │ │ ├─src/
+  │ │ │ ├─index.d.ts
+  │ │ │ ├─index.js
+  │ │ │ └─index.js.map
+  │ ├─LICENSE/
+  ...
+  ```
+
+  Would look like this:
+
+  ```
+  ...
+
+  │ ├─build/
+  │ │ ├─src/
+  │ │ │ ├─index.d.ts
+  │ │ │ ├─index.js
+  │ │ └─└─index.js.map
+  │ ├─LICENSE
+  ...
+  ```
+
+- Make vertical lines at different indent levels different colors for better readability.
+- Add an option for depth to stop listing files within subsequent directories.
+- Make program work by running it with options from the command line.
