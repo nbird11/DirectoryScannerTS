@@ -8,7 +8,7 @@ My purpose for writing this software is to learn the basics of TypeScript and to
 
 {Link to YouTube demonstration. 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what I learned about the language syntax.}
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Directory Scanner - Demo Video](https://youtu.be/RPz6n9gmK1c)
 
 # Development Environment
 
