@@ -53,7 +53,7 @@ async function listFiles(
 
     // On first pass, display the full path of specified relative path.
     if (indent === 1) {
-      // TODO Change to if (path.contains('.')); May be less stable
+      // TODO Change to if (indent === 1 && path.contains('.'))
       const savedDir = process.cwd();
       process.chdir(path);
       console.log(process.cwd());
