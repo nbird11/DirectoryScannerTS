@@ -97,6 +97,6 @@ Things that I need to fix, improve, and add in the future.
   ...
   ```
 
-- Make vertical lines at different indent levels different colors for better readability.
+- ~~Make vertical lines at different indent levels different colors for better readability.~~
 - Add an option for depth to stop listing files within subsequent directories.
-- Make program work by running it with options from the command line.
+- ~~Make program work by running it with options from the command line.~~
