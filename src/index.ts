@@ -55,28 +55,6 @@ function logDir(indent: number, dir: string): void {
   );
 }
 
-// /**
-//  * Outputs a line containing the name of the file to the display.
-//  * @param indent The depth of the file from root.
-//  * @param file The name of the file.
-//  * @param isLastFile Whether the file is the last one in the current directory.
-//  */
-// function logFile(indent: number, file: string, isLastFile: boolean): void {
-//   console.log(
-//     // Indent is used to determine the number of vertical lines needed before the file.
-//     '│ '.repeat(indent - 1) + ((isLastFile ? '└─' : '├─') + file)
-//   );
-// }
-
-// /**
-//  * Outputs a line containing the name of the directory to the display.
-//  * @param indent The depth of the dir from root.
-//  * @param dir The name of the dir.
-//  */
-// function logDir(indent: number, dir: string): void {
-//   console.log('│ '.repeat(indent - 1) + ('├─' + `${dir}/`));
-// }
-
 /**
  * Recursive function that lists all the files and directories from the
  * specified path.
